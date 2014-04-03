@@ -5,13 +5,13 @@ class DriveController < ApplicationController
   end
 
   def upload
-    session[:drive].upload_from_file(uploadpath, uploadfile, :convert => convertTF)
+    session[:drive].upload_from_file(:uploadpath, :uploadfile, :convert => :convertTF)
     
   end
 
-  def download(file, path)
-    @filetodownload = session[:drive].file_by_title(downloadfile)
-    @filetodownload.download_to_file(path)
+  def download
+    filetodownload = session[:drive].file_by_title(:downloadfile)
+    filetodownload.download_to_file(:downloadpath)
   end
 
   def logout

@@ -1,15 +1,15 @@
 class DriveController < ApplicationController
-  def login(username, password)
-    session[:drive] = GoogleDrive.login(username, password)
+  def login
+    session[:drive] = GoogleDrive.login(ApplicationController::DRIVE_EMAIL, ApplicationController::DRIVE_PASSWORD)
     redirect_to root_url
   end
 
-  def upload(uploadpath, uploadfile, convertTF)
+  def upload
     session[:drive].upload_from_file(uploadpath, uploadfile, :convert => convertTF)
     
   end
 
-  def download(downloadfile, path)
+  def download(file, path)
     @filetodownload = session[:drive].file_by_title(downloadfile)
     @filetodownload.download_to_file(path)
   end

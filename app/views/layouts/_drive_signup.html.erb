@@ -1,0 +1,12 @@
+<div id="user-widget">
+  <% if current_user %>
+      <% if current_drive %> 
+      Your facebook and drive accounts are connected
+      <%= link_to "Sign out of Drive", drive_logout_path %>
+    <% else %>
+      <%= link_to "sign into Google Drive", "/drive/login" %>
+    <% end %>
+
+  <% end %>
+</div>
+

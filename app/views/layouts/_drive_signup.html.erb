@@ -1,6 +1,6 @@
 <div id="user-widget">
   <% if current_user %>
-      <% if current_drive %> 
+      <% if session[:drive] != nil %> 
       Your facebook and drive accounts are connected
       <%= link_to "Sign out of Drive", drive_logout_path %>
     <% else %>

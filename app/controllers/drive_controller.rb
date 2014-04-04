@@ -5,7 +5,6 @@ class DriveController < ApplicationController
   end
 
   def upload
-    session[:drive].upload_from_file(:uploadpath, :uploadfile, :convert => :convertTF)
   end
 
   def download

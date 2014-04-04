@@ -1,2 +1,5 @@
-%h1 Drive#upload
-%p Find me in app/views/drive/upload.html.erb
+Upload File Here
+
+- form_tag '/upload', { :multipart => true } do 
+  = file_field_tag 'upload[file]'
+  = submit_tag "Upload file"

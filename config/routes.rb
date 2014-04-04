@@ -1,10 +1,11 @@
 Dropshare::Application.routes.draw do
   get "drive/login"
-  get "drive/upload"
+  match "drive/upload", to: 'drive#upload', via:[:get, :post]
   get "drive/download"
   get "drive/logout"
   root 'users#index'
   match '/signup', to: 'users#new', via: 'get'
+  match '/upload', to: 'upload#upload', via: 'post'
   
   
   # To link facebook 

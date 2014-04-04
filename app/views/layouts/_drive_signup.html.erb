@@ -2,9 +2,9 @@
   <% if current_user %>
       <% if session[:drive] != nil %> 
       Your facebook and drive accounts are connected
-      
+      <%= link_to "Sign out of Drive", drive_logout_path %>
     <% else %>
-      <%= redirect_to drive_login %>
+      <%= link_to "sign into Google Drive", "/drive/login" %>
     <% end %>
 
   <% end %>

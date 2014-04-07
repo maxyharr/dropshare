@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def index
+    # test comment
   end
 
   def about

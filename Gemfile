@@ -8,7 +8,10 @@ gem 'google_drive'
 gem 'html2haml'
 gem 'haml-rails'
 
+
+
 group :development, :test do
+  gem 'erb2haml'
   gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
 end

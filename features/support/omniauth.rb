@@ -7,17 +7,28 @@
 # And I go to a secure page
 # Then I should see something secure
 
-Before('@omniauth_test') do
+# Config success case:
+Before('@omniauth_test_success') do
   OmniAuth.config.test_mode = true
- 
-  # the symbol passed to mock_auth is the same as the name of the provider set up in the initializer
+
   OmniAuth.config.mock_auth[:facebook] = {
-      "provider"=>"facebook",
-      "uid"=>"http://xxxx.com/openid?id=118181138998978630963",
-      "user_info"=>{"email"=>"test@xxxx.com", "first_name"=>"Test", "last_name"=>"User", "name"=>"Test User"}
+    "provider"  => "facebook",
+    "uid"       => '12345',
+    "user_info" => {
+      "email" => "email@email.com",
+      "first_name" => "John",
+      "last_name"  => "Doe",
+      "name"       => "John Doe"
+      # any other attributes you want to stub out for testing
+    }
   }
 end
- 
-After('@omniauth_test') do
-  OmniAuth.config.test_mode = false
+
+# Config failure case
+Before('@omniauth_test_failure') do
+  OmniAuth.config.test_mode = true
+  [:default, :facebook, :twitter].each do |service|
+    OmniAuth.config.mock_auth[service] = :invalid_credentials
+    # or whatever status code you want to stub
+  end
 end

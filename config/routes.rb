@@ -6,7 +6,6 @@ Dropshare::Application.routes.draw do
   get "drive/download"
   get "drive/logout"
   
-  
   # To link facebook 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]

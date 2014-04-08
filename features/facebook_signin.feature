@@ -6,10 +6,12 @@ Feature: Signing in to DropShare with Facebook
 	
 	Scenario: Sad Path
 		Given I am on the home page
-		Then I should not see "Google"
+    When I click "Sign up with Facebook"
+    Then I should be on the home page and I should not see "Google"
 	
 	@omniauth_test
 	Scenario: Happy Path
-		Given I am on the home page 
-		Then I should see "Google"
+		Given I am on the home page
+    When I click "Sign up with Facebook"
+		Then I should see "Test User"
 	

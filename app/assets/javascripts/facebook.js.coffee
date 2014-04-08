@@ -11,7 +11,7 @@ jQuery ->
 window.fbAsyncInit = ->
   
 	#FB.init(appId: '561983067232884', cookie: true)
-  if document.URL == "http://localhost:3000/" then FB.init(appId: '734159986623825', cookie: true) else alert document.URL FB.init(appId: '561983067232884', cookie: true)
+  if document.URL == "http://localhost:3000/" then FB.init(appId: '734159986623825', cookie: true) else FB.init(appId: '561983067232884', cookie: true)
   
   
   $('#sign_in').click (e) ->

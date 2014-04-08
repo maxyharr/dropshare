@@ -7,7 +7,15 @@ class ApplicationController < ActionController::Base
   #login information for our drive
   DRIVE_USER = "testermctestingstons@gmail.com"
   DRIVE_PASS = "dropshare"
-  
+
+  before_action :check_drive
+  def check_drive
+    if session[:drive] == nil
+      redirect_to drive_login_path
+    end
+  end
+
+
   # Below this line added from omniauth-facebook tutorial
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -15,6 +23,7 @@ class ApplicationController < ActionController::Base
 
   def current_drive
     @current_drive ||= User.find(session[:drive]) if session[:drive]
+    
   end
   
   helper_method :current_drive

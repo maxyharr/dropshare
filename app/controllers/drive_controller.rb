@@ -1,11 +1,4 @@
-class DriveController < ApplicationController
-
-  def check_login
-    if session[:drive] == nil
-      login
-    end
-  end
-      
+class DriveController < ApplicationController     
 
   def login
     session[:drive] = GoogleDrive.login(ApplicationController::DRIVE_USER, ApplicationController::DRIVE_PASS)

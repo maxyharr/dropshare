@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   #login information for our drive
   DRIVE_USER = "testermctestingstons@gmail.com"
   DRIVE_PASS = "dropshare"
-
+  $views_since_boot = 0
   # ensure drive is logged on 
   before_action :check_login
   def check_login

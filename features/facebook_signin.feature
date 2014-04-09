@@ -13,11 +13,11 @@ Feature: Signing in to DropShare with Facebook
   @omniauth_test_success
     Scenario: A user successfully signs in with Facebook
       Given I am on the homepage
-      And I follow "sign_in"
+      When I follow "sign_in"
       Then I should see "Login successful."
 
   @omniauth_test_failure
     Scenario: A user unsuccessfully signs in with Facebook
       Given I am on the homepage
-      And I follow "sign_in"
+      When I follow "sign_in"
       Then I should see "Failed."

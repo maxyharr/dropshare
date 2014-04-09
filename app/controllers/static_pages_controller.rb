@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def index
-    # test comme
+    $views_since_boot = $views_since_boot + 1    
   end
 
   def about

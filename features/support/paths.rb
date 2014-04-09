@@ -15,6 +15,12 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+    when /^the upload\s?page$/
+      '/drive/upload/'
+    when /^the download\s?page$/
+      '/drive/download/'
+    when /^the drive login\s?page$/
+      '/drive/login'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

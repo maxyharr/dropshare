@@ -1,7 +1,7 @@
 #user-widget
   - if current_user
     - if session[:drive] != nil
-      Your facebook and drive accounts are connected
-      \#{link_to "Sign out of Drive", drive_logout_path, id: "drive_logout"}
+      %h2 drive account active
+     
     - else
       = link_to "sign into Google Drive", "/drive/login", id: "drive_login"

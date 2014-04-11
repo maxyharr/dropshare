@@ -6,8 +6,8 @@ Feature: Uploading a file
 	
 	Scenario: Sad Path
 		Given I am on the upload page
-		Then I should not see "Upload file"
+		Then I should not see Upload file
 	
 	Scenario: Happy Path
 		Given I am on the upload page 
-		Then I should see "Upload file"
+		Then I should see Upload file

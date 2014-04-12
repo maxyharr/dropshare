@@ -1,5 +1,5 @@
 Dropshare::Application.routes.draw do
-  root 'static_pages#index'
+  #root 'static_pages#index'
   
   get "drive/login"
   get "drive/upload"
@@ -7,12 +7,19 @@ Dropshare::Application.routes.draw do
   get "drive/logout"
   
   get "/oauth/authorize"
+
+  resource :facebook, :except => :create do
+    get :callback, :to => :create
+  end
+  resource :profile, :only => :show
+  root :to => 'top#index'
+
   
   # To link facebook 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
-  match ':user_id/friendlists', to: 'sessions#create', via: [:get]
+#  match ':user_id/friendlists', to: 'sessions#create', via: [:get]
   
 
   #about page

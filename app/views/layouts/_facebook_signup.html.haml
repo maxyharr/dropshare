@@ -1,8 +1,6 @@
 #user-widget
-  - if current_user
+  - if authenticated?
     Welcome
-    = succeed "!" do
-      %strong= current_user.name
-    = link_to "Sign out", signout_path, id: "sign_out"
+    = link_to "Sign out", facebook_path, :method => :delete
   - else
-    = link_to "Sign up with Facebook", "/auth/facebook", id: "sign_in"
+    = link_to "Sign up with Facebook", new_facebook_path

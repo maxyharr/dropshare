@@ -1,8 +1,22 @@
-class ApplicationController < ActionController::Base
+ class ApplicationController < ActionController::Base
+  include Authentication
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
-  private
+
+  protect_from_forgery 
+
+
+  rescue_from FbGraph::Exception, :with => :fb_graph_exception
+  
+  def fb_graph_exception(e)
+    flash[:error] = {
+      :title   => e.class,
+      :message => e.message
+    }
+    current_user.try(:destroy)
+    redirect_to root_url
+  end
+  
 
   #login information for our drive
   DRIVE_USER = "testermctestingstons@gmail.com"
@@ -18,12 +32,13 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  
 
 
   # Below this line added from omniauth-facebook tutorial
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
+  #def current_user
+  #  @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  #end
 
   def current_drive
     @current_drive ||= User.find(session[:drive]) if session[:drive]

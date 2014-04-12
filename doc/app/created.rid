@@ -1,0 +1,17 @@
+Sat, 12 Apr 2014 00:33:48 -0600
+doc/README_FOR_APP	Fri, 11 Apr 2014 18:57:48 -0600
+app/controllers/achievements_controller.rb	Fri, 11 Apr 2014 18:57:48 -0600
+app/controllers/application_controller.rb	Fri, 11 Apr 2014 18:57:48 -0600
+app/controllers/canvas_controller.rb	Fri, 11 Apr 2014 18:57:48 -0600
+app/controllers/credits_controller.rb	Fri, 11 Apr 2014 18:57:48 -0600
+app/controllers/dashboard_controller.rb	Fri, 11 Apr 2014 18:57:48 -0600
+app/controllers/facebooks_controller.rb	Fri, 11 Apr 2014 18:57:48 -0600
+app/controllers/profiles_controller.rb	Fri, 11 Apr 2014 18:57:48 -0600
+app/controllers/subscriptions_controller.rb	Fri, 11 Apr 2014 18:57:48 -0600
+app/controllers/timeline_controller.rb	Fri, 11 Apr 2014 18:57:48 -0600
+app/controllers/top_controller.rb	Fri, 11 Apr 2014 18:57:48 -0600
+app/helpers/application_helper.rb	Fri, 11 Apr 2014 19:42:13 -0600
+app/models/achievement.rb	Fri, 11 Apr 2014 18:57:48 -0600
+app/models/facebook.rb	Fri, 11 Apr 2014 18:57:48 -0600
+app/models/subscription.rb	Fri, 11 Apr 2014 18:57:48 -0600
+lib/authentication.rb	Fri, 11 Apr 2014 18:57:48 -0600

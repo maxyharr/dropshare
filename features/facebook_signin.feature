@@ -19,5 +19,16 @@ Feature: Signing in to DropShare with Facebook
   @omniauth_test_failure
     Scenario: A user unsuccessfully signs in with Facebook
       Given I am on the homepage
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+      And I follow "sign_in"
+      Then I should see "Failed."
+      
+  =======
       When I follow "sign_in"
       Then I should see "Failed."
+>>>>>>> External Changes
+=======
+      When I follow "sign_in"
+      Then I should see "Failed."
+>>>>>>> External Changes

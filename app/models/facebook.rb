@@ -14,8 +14,7 @@ class Facebook < ActiveRecord::Base
         {
           :client_id     => ENV['fb_client_id'],
           :client_secret => ENV['fb_client_secret'],
-          :scope         => ENV['fb_scope'],
-
+          :scope         => ENV['fb_scope']
         }
       else
         YAML.load_file("#{Rails.root}/config/facebook.yml")[Rails.env].symbolize_keys
@@ -38,6 +37,14 @@ class Facebook < ActiveRecord::Base
       _fb_user_.save!
       _fb_user_
     end
+    
+    def friends
+      @current_user.profile.friends.each do |friend|
+        @friends << friend
+      end
+      @friends.sort
+    end
+
   end
 
 end

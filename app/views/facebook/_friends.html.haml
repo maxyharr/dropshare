@@ -1,0 +1,7 @@
+-# This file is app/views/facebook/_friends.html.haml
+#user-widget
+
+- @friends.each do |friend|
+  = check_box_tag "#{friend}", 1, true
+  = friend
+  %p

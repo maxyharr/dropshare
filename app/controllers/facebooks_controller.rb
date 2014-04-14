@@ -1,6 +1,7 @@
 require 'rack/oauth2'
-
 class FacebooksController < ApplicationController
+  include Authentication
+  include HelperMethods
   before_filter :require_authentication, :only => :destroy
 
   rescue_from Rack::OAuth2::Client::Error, :with => :oauth2_error
@@ -26,20 +27,13 @@ class FacebooksController < ApplicationController
     client.authorization_code = params[:code]
     access_token = client.access_token! :client_auth_body
     user = FbGraph::User.me(access_token).fetch
-    authenticate Facebook.identify(user)    
+    authenticate Facebook.identify(user)       
     redirect_to root_url
   end
 
   def destroy
     unauthenticate
     redirect_to root_url
-  end
-
-  def friends
-    current_user.profile.friends.each do |friend|
-      @friendsList << friend
-    end
-    @friendsList.sort
   end
 
   private

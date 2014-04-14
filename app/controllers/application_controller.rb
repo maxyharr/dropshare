@@ -1,5 +1,6 @@
  class ApplicationController < ActionController::Base
   include Authentication
+  include HelperMethods
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
 
@@ -17,7 +18,6 @@
     redirect_to root_url
   end
   
-
   #login information for our drive
   DRIVE_USER = "testermctestingstons@gmail.com"
   DRIVE_PASS = "dropshare"
@@ -41,10 +41,9 @@
   #end
 
   def current_drive
-    @current_drive ||= User.find(session[:drive]) if session[:drive]
-    
+    @current_drive ||= User.find(session[:drive]) if session[:drive]    
   end
   
   helper_method :current_drive
-  helper_method :current_user
+
 end

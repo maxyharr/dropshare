@@ -3,7 +3,7 @@
     Welcome 
     %strong= current_user.profile.name
     = link_to "Sign out", facebook_path, :method => :delete
-    = render 'layouts/friend_select'
+    = render 'facebook/friends'
 
   - else
     = link_to "Sign in", new_facebook_path

@@ -67,7 +67,7 @@ Cucumber::Rails::Database.javascript_strategy = :truncation
 # And I go to a secure page
 # Then I should see something secure
 
-Before('@omniauth_test') do
+Before('@omniauth_test_success') do
   OmniAuth.config.test_mode = true
  
   # the symbol passed to mock_auth is the same as the name of the provider set up in the initializer
@@ -78,8 +78,19 @@ Before('@omniauth_test') do
       "credentials"=>{"token"=>"test_token", "expires_at"=>12345},
   }
 end
+
+Before('@omniauth_test_failure') do
+  OmniAuth.config.test_mode = true
+  [:facebook].each do |service|
+    OmniAuth.config.mock_auth[service] = :invalid_credentials
+  end
+end
+
+After('@omniauth_test_failure') do
+  OmniAuth.config.test_mode = false
+end
  
-After('@omniauth_test') do
+After('@omniauth_test_success') do
   OmniAuth.config.test_mode = false
 end
 

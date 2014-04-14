@@ -3,7 +3,7 @@ Feature: Signing in to DropShare with Facebook
 	As a user
 	I want to log in with my Facebook account
 	
-	@omniauth_test
+	@omniauth_test_success
   Scenario: A user successfully signs in with facebook (Happy Path)
     Given I am on the home page
     When I follow "sign_in"

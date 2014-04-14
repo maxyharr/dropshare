@@ -7,7 +7,7 @@ Dropshare::Application.routes.draw do
   get "drive/logout"
   
   match "/oauth/authorize", to: 'sessions#create', via: [:get, :post]
-  
+    
   # To link facebook 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
@@ -15,6 +15,8 @@ Dropshare::Application.routes.draw do
   match ':user_id/friendlists', to: 'sessions#create', via: [:get]
   # redirect to feed after login
   match 'feed', to: 'users#feed', via: [:get, :post]
+  # user wall
+  match 'wall', to: 'users#wall', via: [:get, :post]
 
   #about page
   match '/about', to: 'static_pages#about', via: [:get]

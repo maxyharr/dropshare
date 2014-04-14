@@ -1,3 +1,3 @@
-When(/^I "(.*?)" sign in with email and pass$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+When(/^I sign in with facebook$/) do
+  visit "/auth/facebook"
 end

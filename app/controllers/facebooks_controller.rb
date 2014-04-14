@@ -9,7 +9,7 @@ class FacebooksController < ApplicationController
   def show
     auth = Facebook.auth.from_cookie(cookies)
     authenticate Facebook.identify(auth.user)
-    redirect_to dashboard_url
+    redirect_to root_url
   end
 
   # handle Normal OAuth flow: start
@@ -26,13 +26,20 @@ class FacebooksController < ApplicationController
     client.authorization_code = params[:code]
     access_token = client.access_token! :client_auth_body
     user = FbGraph::User.me(access_token).fetch
-    authenticate Facebook.identify(user)
+    authenticate Facebook.identify(user)    
     redirect_to root_url
   end
 
   def destroy
     unauthenticate
     redirect_to root_url
+  end
+
+  def friends
+    current_user.profile.friends.each do |friend|
+      @friendsList << friend
+    end
+    @friendsList.sort
   end
 
   private

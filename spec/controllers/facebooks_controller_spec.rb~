@@ -1,0 +1,6 @@
+it do
+  mock_graph :get, 'me', 'users/me_private', :access_token => 'access_token' do
+    user = FbGraph::User.me('access_token').fetch
+    user.name.should == 'Luke Woodruff'
+  end
+end

@@ -41,7 +41,7 @@ gem 'json'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'rake'
 gem 'fb_graph-rails', :git => 'git@github.com:fujimura/fb_graph-rails.git'
-gem 'gb_graph-mock'
+gem 'fb_graph-mock'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false

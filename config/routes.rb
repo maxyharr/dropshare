@@ -13,7 +13,8 @@ Dropshare::Application.routes.draw do
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
   match ':user_id/friendlists', to: 'sessions#create', via: [:get]
-  
+  # redirect to feed after login
+  match 'feed', to: 'users#feed', via: [:get, :post]
 
   #about page
   match '/about', to: 'static_pages#about', via: [:get]

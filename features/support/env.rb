@@ -74,7 +74,8 @@ Before('@omniauth_test') do
   OmniAuth.config.mock_auth[:facebook] = {
       "provider"=>"facebook",
       "uid"=>"12345",
-      "user_info"=>{"email"=>"test@test.com", "first_name"=>"Test", "last_name"=>"User", "name"=>"Test User"}
+      "info"=>{"email"=>"test@test.com", "first_name"=>"Test", "last_name"=>"User", "name"=>"Test User"},
+      "credentials"=>{"token"=>"test_token", "expires_at"=>12345},
   }
 end
  

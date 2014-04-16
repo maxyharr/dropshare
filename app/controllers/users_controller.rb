@@ -2,12 +2,19 @@ class UsersController < ApplicationController
   include Authentication
   include HelperMethods
   def feed
-    redirect_to root_path if current_user == nil  
+    if authenticated?
+      FacebooksController#friends
+    else
+      redirect_to root_path
+    end
   end
   
   def wall
-    redirect_to root_path if current_user == nil 
-    FacebooksController#friends
+    if authenticated?
+      
+    else
+      redirect_to root_path if current_user == nil 
+    end
   end  
 
 end

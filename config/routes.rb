@@ -23,11 +23,7 @@ Dropshare::Application.routes.draw do
   match 'feed', to: 'users#feed', via: [:get, :post]
   # user wall
   match 'wall', to: 'users#wall', via: [:get, :post]
-
-#  match ':user_id/friendlists', to: 'sessions#create', via: [:get]
   
->>>>>>> fbFriends
-
   #about page
   match '/about', to: 'static_pages#about', via: [:get]
   match '/contact', to: 'static_pages#contact', via: [:get]

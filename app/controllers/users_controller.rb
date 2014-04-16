@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if authenticated?
       
     else
-      redirect_to root_path if current_user == nil 
+      redirect_to root_path
     end
   end  
 

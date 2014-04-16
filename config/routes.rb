@@ -1,6 +1,5 @@
 Dropshare::Application.routes.draw do
-  #root 'static_pages#index'
-  
+ 
   get "drive/login"
   get "drive/upload"
   get "drive/download"

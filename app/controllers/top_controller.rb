@@ -3,15 +3,9 @@ class TopController < ApplicationController
   include HelperMethods
 
   def index
-    friends
-  end
-  
-  def friends
-    @friends = []
-    current_user.profile.friends.each do |friend|
-      @friends << friend.name
+    if authenticated?
+      redirect_to wall_path
     end
-    @friends.sort!
   end
-  
+    
 end

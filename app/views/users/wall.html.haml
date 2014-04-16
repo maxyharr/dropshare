@@ -1,1 +1,2 @@
-%h1= "We are on " + current_user.name + "'s Wall"
+%h1= "We are on " + current_user.profile.name + "'s Wall"
+= render 'layouts/friend_select'

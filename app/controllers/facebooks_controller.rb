@@ -45,4 +45,14 @@ class FacebooksController < ApplicationController
     }
     redirect_to root_url
   end
+
+  def friends
+    @friends = []
+    current_user.profile.friends.each do |friend|
+      @friends << friend.name
+    end
+    @friends.sort!
+  end
+     
+
 end

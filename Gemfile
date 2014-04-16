@@ -8,6 +8,7 @@ gem 'google_drive'
 gem 'html2haml'
 gem 'haml-rails'
 
+gem 'memoist'
 
 
 group :development, :test do
@@ -25,6 +26,7 @@ group :test do
   gem 'launchy'
 end
 
+gem 'rack-oauth2'
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 gem 'sass-rails', '4.0.2'
@@ -33,6 +35,13 @@ gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.0.4'
 gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '1.0.2'
+
+gem 'unicorn'
+gem 'json'
+gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'rake'
+gem 'fb_graph-rails', :git => 'git@github.com:fujimura/fb_graph-rails.git'
+
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false

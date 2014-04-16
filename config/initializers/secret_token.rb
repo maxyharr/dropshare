@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Dropshare::Application.config.secret_key_base = '6cab7dc9b323cc6da7ea0df3218198a013f647ffbd63bc498bb676f7cbf271c18251603e8b77a4c809dc19562a7e0e3b953cd34a10ba68123ec526d3977db516'
+Dropshare::Application.config.secret_token = '6cab7dc9b323cc6da7ea0df3218198a013f647ffbd63bc498bb676f7cbf271c18251603e8b77a4c809dc19562a7e0e3b953cd34a10ba68123ec526d3977db516'

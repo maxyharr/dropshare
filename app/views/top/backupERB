@@ -1,0 +1,8 @@
+<section class="top">
+  <article>
+    <h2>Welcome to Dropshare</h2>
+    <%= render :partial => 'layouts/facebook_signup' %>
+  </article>
+
+</section>
+

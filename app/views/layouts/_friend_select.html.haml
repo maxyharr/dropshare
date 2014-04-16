@@ -1,0 +1,6 @@
+-# This file is app/views/layouts/_friend_select.html.haml
+#user-widget
+- current_user.profile.friends.each do |friend|
+  = check_box_tag"#{friend.name}", 1, true
+  = friend.name
+  %p

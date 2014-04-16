@@ -1,0 +1,4 @@
+#user-widget
+= form_tag 
+  - current_user.profile.friends.each do |friend, value|
+    = check_box_tag "friends[#{friend.name}]", 1, value

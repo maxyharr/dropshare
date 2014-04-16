@@ -13,6 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20140331234849) do
 
+  create_table "facebooks", force: true do |t|
+    t.string   "identifier",   limit: 20
+    t.string   "access_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"

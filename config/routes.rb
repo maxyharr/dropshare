@@ -1,22 +1,32 @@
 Dropshare::Application.routes.draw do
-  root 'static_pages#index'
+  #root 'static_pages#index'
   
   get "drive/login"
   get "drive/upload"
   get "drive/download"
   get "drive/logout"
   
-  match "/oauth/authorize", to: 'sessions#create', via: [:get, :post]
-    
+  get "/oauth/authorize"
+
+  resource :facebook, :except => :create do
+    get :callback, :to => :create
+  end
+  resource :profile, :only => :show
+  root :to => 'top#index'
+  
   # To link facebook 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
-  match ':user_id/friendlists', to: 'sessions#create', via: [:get]
+
   # redirect to feed after login
   match 'feed', to: 'users#feed', via: [:get, :post]
   # user wall
   match 'wall', to: 'users#wall', via: [:get, :post]
+
+#  match ':user_id/friendlists', to: 'sessions#create', via: [:get]
+  
+>>>>>>> fbFriends
 
   #about page
   match '/about', to: 'static_pages#about', via: [:get]

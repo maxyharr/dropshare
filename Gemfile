@@ -24,6 +24,7 @@ group :test do
   gem 'database_cleaner'
   gem 'capybara', '2.1.0'
   gem 'launchy'
+  gem 'fb_graph-mock'
 end
 
 gem 'rack-oauth2'

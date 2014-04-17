@@ -7,7 +7,7 @@ Feature: Signing in to DropShare with Facebook
     Given I am on the home page
     Then I should see "sign in" 
 
-	@omniauth_test_success
+  @omniauth_test_success
   Scenario: A user successfully signs in with facebook (Happy Path)
     When I follow "sign in"
     And I go to the home page

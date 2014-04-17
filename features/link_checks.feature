@@ -3,16 +3,15 @@ Feature: Navigating around the site
   In order to navigate to different pages
   As a user
   I want to click on links to differnet pages
-  
+	
   @omniauth_test_success
-  Scenario: Move from feed page to wall page
-    Given I am signed in with facebook
-    Then I should be on the feed page
-    When I follow "wall_link"
-    Then I should be on the wall page
-    And I should see "Test User's Wall"
-	
-	
+    Scenario: Move from feed page to wall page
+      Given I am signed in with facebook
+      Then I should be on the feed page
+      When I follow "wall_link"
+      Then I should be on the wall page
+      And I should see "Test User's Wall"
+  
   Scenario: Move from home page to home page 
     Given I am on the home page
     When I go to the home page

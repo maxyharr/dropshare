@@ -7,8 +7,7 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'google_drive'
 gem 'html2haml'
 gem 'haml-rails'
-
-
+gem 'carrierwave', '~> 0.9'
 
 group :development, :test do
   gem 'erb2haml'

@@ -1,4 +1,5 @@
 Dropshare::Application.routes.draw do
+  resources :drop_files, only: [:new, :create, :destroy]
   root 'static_pages#index'
   
   get "drive/login"

@@ -1,0 +1,2 @@
+module DropFilesHelper
+end

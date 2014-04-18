@@ -6,6 +6,7 @@ require 'rspec/autorun'
 require 'fb_graph'
 require 'fb_graph/mock'
 include FbGraph::Mock
+WebMock.allow_net_connect!
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

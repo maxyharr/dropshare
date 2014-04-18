@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   include HelperMethods
   def feed
     if authenticated?
-      FacebooksController#friends
+      friends
     else
       redirect_to root_path
     end
@@ -17,4 +17,14 @@ class UsersController < ApplicationController
     end
   end  
 
+  def friends
+    @friends = []
+    current_user.profile.friends.each do |friend|
+      @friends << friend.name
+    end
+    @friends.sort!
+  end
+  
+  def group_friends
+  end
 end

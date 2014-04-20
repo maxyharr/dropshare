@@ -10,6 +10,6 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @drop_files = DropFile.all 
+    @drop_files = @user.drop_files #DropFile.all 
   end
 end

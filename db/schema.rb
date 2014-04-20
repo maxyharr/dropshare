@@ -16,9 +16,12 @@ ActiveRecord::Schema.define(version: 20140417024548) do
   create_table "drop_files", force: true do |t|
     t.string   "name"
     t.string   "attachment"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "drop_files", ["user_id", "created_at"], name: "index_drop_files_on_user_id_and_created_at"
 
   create_table "users", force: true do |t|
     t.string   "name"

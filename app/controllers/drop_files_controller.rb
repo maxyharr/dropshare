@@ -4,7 +4,7 @@ class DropFilesController < ApplicationController
   end
 
   def create
-    @drop_file = DropFile.new(drop_file_params)
+    @drop_file = current_user.drop_files.build(drop_file_params)
     
     if @drop_file.save
       redirect_to user_path(current_user.id), notice: "The file #{@drop_file.name} has been uploaded."

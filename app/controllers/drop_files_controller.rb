@@ -7,7 +7,7 @@ class DropFilesController < ApplicationController
     @drop_file = DropFile.new(drop_file_params)
     
     if @drop_file.save
-      redirect_to wall_path, notice: "The file #{@drop_file.name} has been uploaded."
+      redirect_to user_path(current_user.id), notice: "The file #{@drop_file.name} has been uploaded."
     else
       render "new"
     end
@@ -16,7 +16,7 @@ class DropFilesController < ApplicationController
   def destroy
     @drop_file = DropFile.find(params[:id])
     @drop_file.destroy
-    redirect_to wall_path, notice: "The file #{@drop_file.name} has been deleted."
+    redirect_to user_path(current_user.id), notice: "The file #{@drop_file.name} has been deleted."
   end
   
 private

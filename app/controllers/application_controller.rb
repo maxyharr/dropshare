@@ -24,6 +24,23 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
+  
+  def graph_user
+    @graph_user ||= FbGraph::User.me(current_user.oauth_token) if session[:user_id]
+  end
+  
+  def graph_friends
+    @friends = @graph_user.friends
+    if @dropshare_friends == nil
+      @dropshare_friends = Hash.new
+      @friends.each do |friend|
+        dropshare_friend = User.find_by_uid(friend.identifier)
+        if dropshare_friend
+          @dropshare_friends + dropshare_friend
+        end
+      end
+    end
+  end
 
   def current_drive
     @current_drive ||= User.find(session[:drive]) if session[:drive]
@@ -32,4 +49,6 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_drive
   helper_method :current_user
+  helper_method :graph_user
+  helper_method :graph_friends
 end

@@ -5,7 +5,7 @@
     %h2 Facebook friends using DropShare
     - @friends.each do |friend|
       - if User.find_by_uid(friend.identifier)
-        = friend.picture
+        = image_tag friend.picture
         = link_to friend.name, user_path(User.find_by_uid(friend.identifier).id)
         %br
   

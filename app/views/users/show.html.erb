@@ -6,6 +6,7 @@
   </div>
 <% end %>
 <br />
+<div class="well">
 <% if current_user.id == @user.id %>
   <%= link_to "Upload File", new_drop_file_path, class: "btn btn-primary" %>
 <% end %>
@@ -33,3 +34,4 @@
     <% end %>
   </tbody>
 </table>
+</div>

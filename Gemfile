@@ -8,6 +8,7 @@ gem 'google_drive'
 gem 'html2haml'
 gem 'haml-rails'
 gem 'carrierwave', '~> 0.9'
+gem 'fb_graph'
 
 group :development, :test do
   gem 'erb2haml'

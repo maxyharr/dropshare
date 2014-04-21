@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
     @current_drive ||= User.find(session[:drive]) if session[:drive]
   end
   
+  def graph_user
+    @graph_user ||= FBGraph::User.me(current_user.oauth_token) if session[:user_id]
+  end
+  
   helper_method :current_drive
   helper_method :current_user
 end

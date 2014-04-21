@@ -9,6 +9,7 @@
       - @friends.each do |friend|
         - if User.find_by_uid(friend.identifier)
           %tr
-          = image_tag friend.picture
-          = link_to friend.name, user_path(User.find_by_uid(friend.identifier).id)
+            %td
+              = image_tag friend.picture
+              = link_to friend.name, user_path(User.find_by_uid(friend.identifier).id)
   

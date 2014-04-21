@@ -2,7 +2,9 @@
   %h1 Feed
   %p= current_user.name + " is logged in"
   .well 
+    %h2 Facebook friends using DropShare
     - @friends.each do |friend|
-      = friend.name
-      %br
+      - if User.find_by_uid(friend.identifier)
+        = link_to friend.name, user_path(User.find_by_uid(friend.identifier).id)
+        %br
   

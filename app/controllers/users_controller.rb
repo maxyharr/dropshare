@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   def feed
     redirect_to root_path if current_user == nil
-    graph_user = FbGraph::User.me(current_user.oauth_token)
-    @friends = graph_user.friends
+    @graph_user = FbGraph::User.me(current_user.oauth_token)
+    @friends = @graph_user.friends
   end
   
   def wall

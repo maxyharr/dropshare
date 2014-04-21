@@ -1,4 +1,9 @@
 class DropFilesController < ApplicationController
+  before_action :check_logged_in
+  def check_logged_in
+    redirect_to root_path if !session[:user_id]
+  end
+  
   def new
     @drop_file = DropFile.new
   end

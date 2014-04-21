@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
-
+  before_action :check_logged_in
+  def check_logged_in
+    redirect_to root_path if !session[:user_id]
+  end
+  
   def feed
-    redirect_to root_path if current_user == nil
     @graph_user = FbGraph::User.me(current_user.oauth_token)
     @friends = @graph_user.friends
     
@@ -9,7 +12,6 @@ class UsersController < ApplicationController
   end
   
   def wall
-    redirect_to root_path if current_user == nil
     @drop_files = DropFile.all  
   end
   

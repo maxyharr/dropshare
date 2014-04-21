@@ -8,7 +8,9 @@ Dropshare::Application.routes.draw do
   get "drive/download"
   get "drive/logout"
   
-  match "/oauth/authorize", to: 'sessions#create', via: [:get, :post]
+  if Rails.env.test?
+    match "/auth/facebook", to: 'sessions#create', via: [:get, :post]
+  end
     
   # To link facebook 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]

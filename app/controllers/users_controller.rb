@@ -5,8 +5,11 @@ class UsersController < ApplicationController
   end
   
   def feed
-    @graph_user = FbGraph::User.me(current_user.oauth_token)
-    @friends = @graph_user.friends
+    if !Rails.env.test?
+      @graph_user = FbGraph::User.me(current_user.oauth_token)
+      @friends = @graph_user.friends
+    end
+
     
     # cache the user's friends (at least for now - long render time otherwise ~4sec)
   end

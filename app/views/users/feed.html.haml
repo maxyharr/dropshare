@@ -1,7 +1,8 @@
 .center.hero-unit
   %h1 Feed
   %p= current_user.name + " is logged in"
-  - @friends.each do |friend|
-    = friend.name
-    %br
+  .well 
+    - @friends.each do |friend|
+      = friend.name
+      %br
   

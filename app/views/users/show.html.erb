@@ -24,7 +24,7 @@
       <tr>
         <td><%= drop_file.name %></td>
         <td><%= link_to "View File", drop_file.attachment_url %></td>
-        <%= if current_user.id == @user.id %>
+        <% if current_user.id == @user.id %>
           <td><%= button_to "Delete",  drop_file, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{drop_file.name}?" %></td>
         <% end %>
       </tr>

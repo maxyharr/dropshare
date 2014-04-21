@@ -1,13 +1,15 @@
 require 'spec_helper'
 
-describe UsersController do
-  before do
-      request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
-  end
-
-    it "sets a session variable to the OmniAuth auth hash" do
-      request.env["omniauth.auth"][:uid].should == '1234'
+describe UsersController do    
+  describe '.feed' do
+    it 'should setup all supported attributes' do
+      attributes = {
+        :id => '12345',
+        :name => "Luke Woodruff",
+        :friends => "friend1, someOtherPerson"
+      }
+      user = FbGraph::User.new(attributes.delete(:id),attributes)
+      user.name.should == "Luke Woodruff"
     end
-    
-    
+  end
 end

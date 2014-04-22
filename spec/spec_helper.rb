@@ -12,17 +12,6 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
-OmniAuth.config.test_mode = true
-omniauth_hash =
-    {:provider => "facebook",
-     :uid      => "1234",
-     :info   => {:name       => "Test User",
-                 :email      => "test@email.com"},
-     :credentials => {:token => "testtoken234tsdf"}}
-
-OmniAuth.config.add_mock(:facebook, omniauth_hash)
-
-
 RSpec.configure do |config|
   # Use capybara for english-like phrases in rspecs
   config.include Capybara::DSL

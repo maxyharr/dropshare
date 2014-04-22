@@ -28,11 +28,12 @@ ActiveRecord::Schema.define(version: 20140417024548) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "facebook"
     t.string   "uid"
     t.string   "provider"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end

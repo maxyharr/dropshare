@@ -5,17 +5,15 @@ class CreateUsers < ActiveRecord::Migration
       t.string   "email"
       t.datetime "created_at"
       t.datetime "updated_at"
-      t.string   "facebook"
       t.string   "uid"
       t.string   "provider"
       t.string   "oauth_token"
       t.datetime "oauth_expires_at"
     end
+    add_index :users, :email, unique: true
   end
-  
   
   def down
     drop_table 'users'
   end
-  
 end

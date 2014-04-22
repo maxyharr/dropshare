@@ -1,7 +1,7 @@
 class DropFilesController < ApplicationController
   before_action :check_logged_in
   def check_logged_in
-    redirect_to root_path if !session[:user_id]
+    redirect_to root_path if !current_user
   end
   
   def new

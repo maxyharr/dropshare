@@ -1,5 +1,5 @@
 def full_title(page_title)
-  base_title = "Dropshare"
+  base_title = "DropShare"
   if page_title.empty?
     base_title
   else

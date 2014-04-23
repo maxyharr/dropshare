@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_logged_in
+  before_action :check_logged_in if Rails.env != 'test'
   def check_logged_in
     redirect_to root_path if !current_user
   end

@@ -8,9 +8,7 @@ Dropshare::Application.routes.draw do
   get "drive/download"
   get "drive/logout"
   
-  if Rails.env.test?
-    match "/auth/facebook", to: 'sessions#create', via: [:get, :post]
-  end
+  match "/auth/facebook", to: 'sessions#create', via: [:get, :post]
     
   # To link facebook 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
@@ -22,7 +20,7 @@ Dropshare::Application.routes.draw do
   # user wall
   match 'wall', to: 'users#wall', via: [:get, :post]
 
-  #about page
+  #static_pages
   match '/about', to: 'static_pages#about', via: [:get]
   match '/contact', to: 'static_pages#contact', via: [:get]
   match '/help', to: 'static_pages#help', via: [:get]

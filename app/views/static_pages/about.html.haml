@@ -1,16 +1,10 @@
-- provide(:title, "About Us")
-%html
-  %head
-    %title= full_title(yield(:title))
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
-    = csrf_meta_tags
-  %h1 About Dropshare
-  %body
-    <strong>Goals:</strong>    
-    %p Make sharing easy between friends
-    %p Make sharing between friends quick
-    %p Make sharing between friends universal to operating system
-
-    <strong>Skills:</strong>
-    %p All group members have had solid experience in programming in multiple other languages including Python, Java and C++ as well as experience with Ruby, Java, CSS, JavaScript. With all of these factors together, this project is a very simple extension of our current abilities nothing in the project is outside of our realm of knowledge
+- provide(:title, "About")
+%h1 About Dropshare
+%body
+.well
+  <strong>Goals:</strong>    
+  %p Make sharing easy between friends
+  %p Make sharing between friends quick
+  %p Make sharing between friends universal to operating system
+  <strong>Skills:</strong>
+  %p All group members have had solid experience in programming in multiple other languages including Python, Java and C++ as well as experience with Ruby, Java, CSS, JavaScript. With all of these factors together, this project is a very simple extension of our current abilities nothing in the project is outside of our realm of knowledge

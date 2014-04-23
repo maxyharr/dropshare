@@ -9,14 +9,14 @@ class ApplicationController < ActionController::Base
   DRIVE_PASS = "dropshare"
   $views_since_boot = 0
   # ensure drive is logged on 
-  before_action :check_login
-  def check_login
-    if session[:drive]
-    else
-      session[:drive] = GoogleDrive.login(ApplicationController::DRIVE_USER, ApplicationController::DRIVE_PASS)
-      redirect_to root_url
-    end
-  end
+  # before_action :check_login
+#   def check_login
+#     if session[:drive]
+#     else
+#       session[:drive] = GoogleDrive.login(ApplicationController::DRIVE_USER, ApplicationController::DRIVE_PASS)
+#       redirect_to root_url
+#     end
+#   end
   
   # Below this line added from omniauth-facebook tutorial
   def current_user

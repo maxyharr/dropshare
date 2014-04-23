@@ -4,28 +4,28 @@ describe StaticPagesController do
 
   describe "GET 'index'" do
     it "returns http success" do
-      get 'index'
+      visit root_path
       response.should be_success
     end
   end
 
   describe "GET 'about'" do
     it "returns http success" do
-      get 'about'
+      visit about_path
       response.should be_success
     end
   end
 
   describe "GET 'contact'" do
     it "returns http success" do
-      get 'contact'
+      visit contact_path
       response.should be_success
     end
   end
 
   describe "GET 'help'" do
     it "returns http success" do
-      get 'help'
+      visit help_path
       response.should be_success
     end
   end

@@ -21,6 +21,8 @@ module NavigationHelpers
       '/drive/download/'
     when /^the drive login\s?page$/
       '/drive/login'
+    when /^the show\s?page$/
+      '/users/1'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

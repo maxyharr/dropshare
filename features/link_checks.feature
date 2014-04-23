@@ -9,7 +9,7 @@ Feature: Navigating around the site
       Given I am signed in with facebook
       Then I should be on the feed page
       When I follow "wall_link"
-      Then I should be on the wall page
+      Then I should be on the show page
       And I should see "Test User's Wall"
   
   Scenario: Move from home page to home page 

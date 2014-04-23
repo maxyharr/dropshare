@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Dropshare::Application.config.secret_key_base = '6cab7dc9b323cc6da7ea0df3218198a013f647ffbd63bc498bb676f7cbf271c18251603e8b77a4c809dc19562a7e0e3b953cd34a10ba68123ec526d3977db516'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Dropshare::Application.config.secret_key_base = secure_token

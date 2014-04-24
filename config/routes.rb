@@ -20,6 +20,8 @@ Dropshare::Application.routes.draw do
   # user wall
   match 'wall', to: 'users#wall', via: [:get, :post]
 
+  #creating friend groups
+  match 'createGroup', to: 'users#create_group', via: [:get, :post]
   #static_pages
   match '/about', to: 'static_pages#about', via: [:get]
   match '/contact', to: 'static_pages#contact', via: [:get]

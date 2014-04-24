@@ -1,6 +1,7 @@
 !!!
 %html
   %head
+    
     %title= full_title(yield(:title))
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
@@ -10,3 +11,4 @@
     .container
       = yield
       = render 'layouts/footer'
+    =analytics_init if Rails.env.production?

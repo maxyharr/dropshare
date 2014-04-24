@@ -10,6 +10,7 @@ gem 'haml-rails'
 gem 'carrierwave', '~> 0.9'
 gem 'carrierwave-google_drive'
 gem 'fb_graph'
+gem 'google-analytics-rails'
 
 group :development, :test do
   gem 'erb2haml'

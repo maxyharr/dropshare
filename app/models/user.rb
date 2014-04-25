@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   validates :name, presence:true, length: { maximum: 50 }
+  validates :pubid, presence:true
   validates :uid, presence:true
   validates :provider, presence:true
   validates :oauth_token, presence:true
@@ -7,6 +8,10 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence:true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   before_save { email.downcase! }
+
+  def set_pubid
+    randid()
+  end
   
   has_many :groups
   has_many :drop_files
@@ -18,6 +23,7 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
       user.oauth_token = auth["credentials"]["token"]
       user.oauth_expires_at = Time.at(auth["credentials"]["expires_at"])
+      user.pubid = set_pubid
       user.save!
     end
   end

@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424234526) do
-
+ActiveRecord::Schema.define(version: 20140425055827) do
 
   create_table "drop_files", force: true do |t|
     t.string   "name"

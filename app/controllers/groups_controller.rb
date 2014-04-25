@@ -19,10 +19,16 @@ class GroupsController < ApplicationController
       end
     end
     # @group = {:group => group_name, :members => group_members}
-    @name = group_name
-    @members = group_members
+
     @group = Group.new(:name => group_name, :members => group_members)
     @group.save!
+    redirect_to feed_path, notice: "The group #{@group.name} was created"
+  end
+
+  def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
+    redirect_to feed_path, notice: "The group was deleted"
   end
 
 end

@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
   def create
     group_name = params[:group]['name']
     @selected_friends = params[:group]
-    #removing any unselected friends from members
+    # Add only those friends that were selected to members of the group
     group_members = []
     @selected_friends.each_pair do |key, value|
       if value == "1"

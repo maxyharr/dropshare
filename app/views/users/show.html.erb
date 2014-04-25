@@ -7,7 +7,7 @@
 <% end %>
 <br />
 <div class="well">
-<% if current_user.id == @user.id %>
+<% if current_user.pubid == @user.pubid %>
   <%= link_to "Upload File", new_drop_file_path, class: "btn btn-primary" %>
 <% end %>
 <br />
@@ -17,7 +17,7 @@
     <tr>
       <th>Name</th>
       <th>Download Link</th>
-      <% if current_user.id == @user.id %>
+      <% if current_user.pubid == @user.pubid %>
         <th>&nbsp;</th>
       <% end %>
     </tr>
@@ -27,7 +27,7 @@
       <tr>
         <td><%= drop_file.name %></td>
         <td><%= link_to "View File", drop_file.attachment_url %></td>
-        <% if current_user.id == @user.id || current_user.id == 1 || current_user.id == 3 %>
+        <% if current_user.pubid == @user.id || current_user.id == 1 || current_user.id == 3 %>
           <td><%= button_to "Delete",  drop_file, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{drop_file.name}?" %></td>
         <% end %>
       </tr>

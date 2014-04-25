@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  extend UsersHelper
   validates :name, presence:true, length: { maximum: 50 }
   validates :pubid, presence:true
   validates :uid, presence:true

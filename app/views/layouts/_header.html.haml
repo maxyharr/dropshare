@@ -9,4 +9,4 @@
           - if current_user
             %li= link_to "New Group", createGroup_path
             %li= link_to "Sign out", signout_path
-            %li= link_to current_user.name, user_path(current_user.id), id: "wall_link"  
+            %li= link_to current_user.name, user_path(current_user.pubid), id: "wall_link"  

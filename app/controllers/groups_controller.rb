@@ -12,13 +12,13 @@ class GroupsController < ApplicationController
     group_name = params[:group]['name']
     @selected_friends = params[:group]
     # Add only those friends that were selected to members of the group
+    # Members are in the form of friend.identifier, can find actual person using same method as showing friends that are using Dropshare
     group_members = []
     @selected_friends.each_pair do |key, value|
       if value == "1"
         group_members << key
       end
     end
-    # @group = {:group => group_name, :members => group_members}
 
     @group = Group.new(:name => group_name, :members => group_members)
     @group.save!

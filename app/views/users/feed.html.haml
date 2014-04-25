@@ -13,10 +13,10 @@
 
   .well
     %h2 Your groups
-    - if !Rails.env.test?
-      - @groups.each do |group|
-        %b= group.name
-        %br
-        - group.members.each do |member|
-          = member + ' '
-        %br
+    - @groups.each do |group|
+      %b= group.name
+      = link_to "Delete group", destroyGroup_path(:gid => group)
+      %br
+      - group.members.each do |member|
+        = member + ' '
+      %br

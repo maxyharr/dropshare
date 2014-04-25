@@ -7,5 +7,6 @@
           %li= link_to "Home", root_path, id: "home"
           %li= link_to "Help", help_path, id: "help"
           - if current_user
+            %li= link_to "New Group", 'createGroup'
             %li= link_to "Sign out", signout_path
             %li= link_to current_user.name, user_path(current_user.id), id: "wall_link"  

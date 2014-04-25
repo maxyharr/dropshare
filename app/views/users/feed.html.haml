@@ -1,6 +1,7 @@
 .center.hero-unit
   %h1 Feed
   %p= current_user.name + " is logged in"
+ 
   .well 
     %h2 Facebook friends using DropShare
     - if !Rails.env.test?
@@ -9,4 +10,13 @@
           = image_tag friend.picture
           = link_to friend.name, user_path(User.find_by_uid(friend.identifier).id)
           %br
-  
+
+  .well
+    %h2 Your groups
+    - if !Rails.env.test?
+      - @groups.each do |group|
+        %b= group.name
+        %br
+        - group.members.each do |member|
+          = member + ', '
+        %br

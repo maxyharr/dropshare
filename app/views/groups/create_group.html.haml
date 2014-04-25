@@ -1,0 +1,14 @@
+-#views/users/create_group.html.haml
+%h1 Create a new group of friends
+%p select from friends you want to be a in a group, give the group a name, and click "Create Group"
+= form_tag groups_path, :method => :post do
+
+  = label :group, 'Group name'
+  = text_field :group, 'name'
+  %p
+  - @friends.each do |friend, value|
+    = check_box("group", friend.identifier)
+    = friend.name
+    %p
+  = submit_tag 'Create group', :id => "group_create"
+

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :check_logged_in, :set_friends # if Rails.env != 'test'
   def feed
+    @groups = Group.all
   end
   
   def wall
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @drop_files = @user.drop_files #DropFile.all
   end
+
 end
 
 

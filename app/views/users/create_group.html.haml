@@ -1,0 +1,15 @@
+-#views/users/create_group.html.haml
+%h1 Create a new group of friends
+
+= form_tag users_path :method => :get do 
+
+  = label :group, :title, 'Group name'
+  = text_field :group, 'title'
+  %p
+  - @friends.each do |friend, value|
+    = friend.name
+    = check_box("members", "#{friend}")
+    %p
+  = submit_tag 'Create', :id => "group_submit"
+
+= @group_of_friends

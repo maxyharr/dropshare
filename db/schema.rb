@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140425055827) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "uid"
+    t.string   "pubid"
     t.string   "provider"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"

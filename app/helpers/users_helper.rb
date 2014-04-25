@@ -11,7 +11,7 @@ module UsersHelper
     if strattempt == nil
       randstr = alphanum()
     end
-    @Users.each do |user|
+    User.all.each do |user|
       if user.pubid == randstr
         set_pubid()
         break

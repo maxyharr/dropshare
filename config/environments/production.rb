@@ -77,4 +77,7 @@ Dropshare::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  #google analytics tracker code
+  GA.tracker = "UA-37189436-1"
 end

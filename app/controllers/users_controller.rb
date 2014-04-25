@@ -1,18 +1,7 @@
 class UsersController < ApplicationController
-  before_action :check_logged_in if Rails.env != 'test'
-  def check_logged_in
-    redirect_to root_path if !current_user
-  end
-  
+  before_action :check_logged_in, :set_friends # if Rails.env != 'test'
   def feed
-    if !Rails.env.test?
-      @graph_user = FbGraph::User.me(current_user.oauth_token)
-      @friends = @graph_user.friends
-      @groups = Group.all
-    end
-
-    
-    # cache the user's friends (at least for now - long render time otherwise ~4sec)
+    @groups = Group.all
   end
   
   def wall
@@ -24,4 +13,20 @@ class UsersController < ApplicationController
     @drop_files = @user.drop_files #DropFile.all
   end
 
+end
+
+
+private
+def check_logged_in
+  redirect_to root_path if !current_user
+end
+
+def set_friends
+  @friends = Rails.cache.fetch("friends-#{current_user.cache_key}") do
+    friends = FbGraph::User.me(current_user.oauth_token).friends
+    friends.map! do |friend|
+      friend if User.find_by_uid(friend.identifier) != nil
+    end
+    friends.compact!
+  end
 end

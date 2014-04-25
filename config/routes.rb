@@ -1,6 +1,8 @@
 Dropshare::Application.routes.draw do
   resources :drop_files, only: [:new, :create, :destroy]
   resources :users
+  resources :groups
+
   root 'static_pages#index'
   
   get "drive/login"
@@ -21,7 +23,11 @@ Dropshare::Application.routes.draw do
   match 'wall', to: 'users#wall', via: [:get, :post]
 
   #creating friend groups
-  match 'createGroup', to: 'users#create_group', via: [:get, :post]
+  match 'createGroup', to: 'groups#create_group', via: [:get, :post]
+
+  match 'makeGroup', to: 'users#create_group', via: [:get, :post]
+
+
   #static_pages
   match '/about', to: 'static_pages#about', via: [:get]
   match '/contact', to: 'static_pages#contact', via: [:get]

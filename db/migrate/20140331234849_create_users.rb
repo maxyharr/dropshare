@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.datetime "created_at"
       t.datetime "updated_at"
       t.string   "uid"
+      t.string   "pubid"
       t.string   "provider"
       t.string   "oauth_token"
       t.datetime "oauth_expires_at"

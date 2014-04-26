@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   
   # Below this line added from omniauth-facebook tutorial
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    @current_user ||= User.find(session[:user_pubid]) if session[:user_pubid]
   end
   
   def current_drive

@@ -1,7 +1,0 @@
-#user-widget
-  - if current_user
-    - if session[:drive] != nil
-      %h2 drive account active
-     
-    - else
-      = link_to "sign into Google Drive", "/drive/login", id: "drive_login"

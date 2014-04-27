@@ -3,11 +3,6 @@ Dropshare::Application.routes.draw do
   resources :users
   root 'static_pages#index'
   
-  get "drive/login"
-  get "drive/upload"
-  get "drive/download"
-  get "drive/logout"
-  
   match "/auth/facebook", to: 'sessions#create', via: [:get, :post]
     
   # To link facebook 

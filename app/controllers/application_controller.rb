@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
   private
 
   #login information for our drive
-  DRIVE_USER = "testermctestingstons@gmail.com"
-  DRIVE_PASS = "dropshare"
   $views_since_boot = 0
   # ensure drive is logged on 
   # before_action :check_login
@@ -23,14 +21,9 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   
-  def current_drive
-    @current_drive ||= User.find(session[:drive]) if session[:drive]
-  end
-  
   def graph_user
     @graph_user ||= FBGraph::User.me(current_user.oauth_token) if session[:user_id]
   end
   
-  helper_method :current_drive
   helper_method :current_user
 end

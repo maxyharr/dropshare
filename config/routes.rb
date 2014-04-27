@@ -25,7 +25,7 @@ Dropshare::Application.routes.draw do
   #creating friend groups
   match 'createGroup', to: 'groups#create_group', via: [:get, :post]
 
-  match 'makeGroup', to: 'users#create_group', via: [:get, :post]
+  match 'destroyGroup', to: 'groups#destroy', via: [:get, :post]
 
 
   #static_pages

@@ -1,0 +1,6 @@
+%h1 Groups of friends using Dropshare
+- current_user.groups.each do |group|
+  = group.name
+%p
+= link_to "new group", 'createGroup'
+

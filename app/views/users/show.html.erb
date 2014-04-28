@@ -1,5 +1,5 @@
 <% provide(:title, @user.name) %>
-<h1><%= "We are on " + @user.name + "'s Wall" %></h1>
+<h1><%= @greeting %></h1>
 <% if !flash[:notice].blank? %>
   <div class="alert alert-info">
   <%= flash[:notice] %>

@@ -29,6 +29,11 @@ class UsersController < ApplicationController
         flash[:warning] = "Files can't be sorted by #{@sort}"          end
     end
     # @drop_files = DropFile.order("name")
+    if @user != current_user
+      @greeting = @user.name + "'s wall" 
+    else
+      @greeting = "Add and delete your files"
+    end
   end
 
 end

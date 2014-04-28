@@ -2,6 +2,16 @@ class UsersController < ApplicationController
   before_action :check_logged_in, :set_friends # if Rails.env != 'test'
   def feed
     @groups = Group.all
+    
+    # .well
+#       %h2 Your groups
+#       - @groups.each do |group|
+#         %b= group.name
+#         = link_to "Delete group", destroyGroup_path(:gid => group)
+#         %br
+#         - group.members.each do |member|
+#           = member + ' '
+#         %br
   end
   
   def wall

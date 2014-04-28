@@ -9,12 +9,4 @@
       =link_to friend.name, user_path(User.find_by_uid(friend.identifier))
       %br
 
-  .well
-    %h2 Your groups
-    - @groups.each do |group|
-      %b= group.name
-      = link_to "Delete group", destroyGroup_path(:gid => group)
-      %br
-      - group.members.each do |member|
-        = member + ' '
-      %br
+      <!--find display code -->

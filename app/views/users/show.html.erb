@@ -15,7 +15,7 @@
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>Name</th>
+      <th><%= link_to 'Name', "/users/#{@user.id}?sort=name " %></th>
       <th>Download Link</th>
       <% if current_user.id == @user.id %>
         <th>&nbsp;</th>

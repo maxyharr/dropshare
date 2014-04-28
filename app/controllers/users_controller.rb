@@ -11,6 +11,14 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @drop_files = @user.drop_files #DropFile.all
+    @sort = params[:sort]
+    if !@sort.nil?
+      begin 
+        @drop_files = DropFile.order("#{@sort}")
+      rescue ActiveRecord::StatementInvalid
+        flash[:warning] = "Files can't be sorted by #{@sort}"          end
+    end
+    # @drop_files = DropFile.order("name")
   end
 
 end

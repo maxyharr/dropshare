@@ -36,7 +36,6 @@ class UsersController < ApplicationController
 
 end
 
-
 private
 def check_logged_in
   redirect_to root_path if !current_user
@@ -51,6 +50,7 @@ def set_friends
     friends.compact!
   end
 end
+
 
 def friend_ids
   @friend_ids = Rails.cache.fetch("friends-#{current_user.cache_key}") do

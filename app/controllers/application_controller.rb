@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
   
   
   private
-
   #login information for our drive
   DRIVE_USER = "testermctestingstons@gmail.com"
   DRIVE_PASS = "dropshare"

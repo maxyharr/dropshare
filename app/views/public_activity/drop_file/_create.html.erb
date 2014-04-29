@@ -1,7 +1,7 @@
 added the file
 
 <% if activity.trackable %>
-  <%= activity.trackable.name %>
+  <%= link_to activity.trackable.name, user_path(@user) %>
 <% else %>
   which has since been removed
 <% end %>

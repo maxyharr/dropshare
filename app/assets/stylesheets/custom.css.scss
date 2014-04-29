@@ -3,6 +3,10 @@
 
 /* =================== universal-begin ======================== */
 
+#main{
+  width:624px;
+}
+
 html {
   overflow-y: scroll;
 }
@@ -27,7 +31,30 @@ textarea {
   margin-bottom: 10px;
 }
 
+.activity {
+  border-bottom: solid 1px #CCC;
+  padding: 16px 0;
+  em {
+    color: #777;
+    font-size: 12px;
+    padding-left: 5px;
+  }
+}
+
 /* =================== universal-end ======================== */
+
+/* =================== sidebar-begin ======================== */
+
+#sidebar {
+float:right;
+width:250px;
+border-left: solid 1px #CCC;
+padding-left: 16px;
+padding-bottom: 50px;
+}
+
+/* =================== sidebar-end ======================== */
+
 
 /* =================== typography-begin  ======================== */
 

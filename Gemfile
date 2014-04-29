@@ -11,6 +11,7 @@ gem 'carrierwave', '~> 0.9'
 gem 'carrierwave-google_drive'
 gem 'fb_graph'
 gem 'google-analytics-rails'
+gem 'public_activity'
 
 group :development, :test do
   gem 'erb2haml'

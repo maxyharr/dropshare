@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :check_logged_in, :set_friends # if Rails.env != 'test'
   def feed
+    friend_ids
+    @activities = PublicActivity::Activity.order("created_at desc")
     @groups = Group.all
     
     # .well
@@ -12,10 +14,6 @@ class UsersController < ApplicationController
 #         - group.members.each do |member|
 #           = member + ' '
 #         %br
-  end
-  
-  def wall
-    @drop_files = DropFile.all  
   end
   
   def show
@@ -51,5 +49,15 @@ def set_friends
       friend if User.find_by_uid(friend.identifier) != nil
     end
     friends.compact!
+  end
+end
+
+def friend_ids
+  @friend_ids = Rails.cache.fetch("friends-#{current_user.cache_key}") do
+    friends = @friends
+    friends.map! do |friend|
+      User.find_by_uid(friend.identifier).id
+    end
+    friends
   end
 end

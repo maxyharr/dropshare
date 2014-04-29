@@ -12,6 +12,8 @@ class DropFilesController < ApplicationController
     @drop_file = current_user.drop_files.build(drop_file_params)
     
     if @drop_file.save
+      # create activity for feed
+      #@drop_file.create_activity :create, owner: current_user
       redirect_to user_path(current_user.id), notice: "The file #{@drop_file.name} has been uploaded."
     else
       render "new"
@@ -20,6 +22,7 @@ class DropFilesController < ApplicationController
 
   def destroy
     @drop_file = DropFile.find(params[:id])
+    #@drop_file.create_activity :destroy, owner: current_user
     @drop_file.destroy
     redirect_to user_path(current_user.id), notice: "The file #{@drop_file.name} has been deleted."
   end

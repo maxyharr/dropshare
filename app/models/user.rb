@@ -10,6 +10,11 @@ class User < ActiveRecord::Base
   
   has_many :groups
   has_many :drop_files
+  
+  # To track activities for feed page
+  include PublicActivity::Model
+  tracked except: :update, owner: ->(controller, model) { controller && controller.current_user }
+  
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.name = auth["info"]["name"]

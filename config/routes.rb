@@ -1,7 +1,9 @@
 Dropshare::Application.routes.draw do
+  get "activities/index"
   resources :drop_files, only: [:new, :create, :destroy]
   resources :users
   resources :groups
+  resources :activities
 
   root 'static_pages#index'
   

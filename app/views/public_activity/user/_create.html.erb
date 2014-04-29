@@ -1,0 +1,9 @@
+<% if activity.trackable %>
+  <% if activity.trackable.name != current_user.name %>
+  <%= link_to activity.trackable.name %> joined DropShare on <%= activity.trackable.created_at.strftime("%m-%d-%Y")%>
+  <% else %>
+    You joined DropShare on <%= activity.trackable.created_at.strftime("%m-%d-%Y")%>
+  <% end %>
+<% end %> 
+
+ 

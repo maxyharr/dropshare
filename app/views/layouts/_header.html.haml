@@ -1,4 +1,5 @@
 %header.navbar.navbar-fixed-top.navbar-inverse
+<<<<<<< HEAD
   .navbar-inner    
     = link_to "Dropshare", '/', id: "logo"
     %nav
@@ -9,3 +10,16 @@
           <!-- %li= link_to "New Group", createGroup_path -->
           %li= link_to "Sign out", signout_path
           %li= link_to "My Files", user_path(current_user.id), id: "wall_link"
+=======
+  .navbar-inner
+    .container
+      = link_to "Dropshare", '/', id: "logo"
+      %nav
+        %ul.nav.pull-right
+          %li= link_to "Home", root_path, id: "home"
+          %li= link_to "Help", help_path, id: "help"
+          - if current_user
+            <!-- %li= link_to "New Group", createGroup_path -->
+            %li= link_to "Sign out", signout_path
+            %li= link_to "My Files", user_path(current_user.id), id: "wall_link"  
+>>>>>>> parent of 682ebe8... remove .container from header

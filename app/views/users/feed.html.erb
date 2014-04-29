@@ -1,0 +1,33 @@
+<h1>Friend's Activites</h1>
+<h2>Welcome <%= current_user.name %> </h2>
+
+<div id="sidebar">
+  <h2>DropShare Friends</h2>
+  <% @friends.each do |friend| %>
+    <%= image_tag friend.picture %>
+    <%= link_to friend.name, user_path(User.find_by_uid(friend.identifier)) %>
+    <br/>
+  <% end %>
+</div>
+
+<div id="main">
+<% @activities.each do |activity| %>
+  <div class="activity">
+    <%= link_to activity.owner.name, activity.owner if activity.owner %>
+    <%= render_activity activity %>
+  </div>
+<% end %>
+</div>
+
+
+
+<!-- .center.hero-unit
+  %h1 Feed
+  .well 
+    %h2 Facebook friends using DropShare
+    -@friends.each do |friend|
+      =image_tag friend.picture
+      =link_to friend.name, user_path(User.find_by_uid(friend.identifier))
+      %br -->
+
+      <!--find display code -->
